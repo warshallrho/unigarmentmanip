@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>UniGarmentManip: A Unified Framework for Category-Level Garment Manipulation via Dense Visual Correspondence</title>
+<link rel="SHORTCUT ICON" href="favicon.ico"/>
+<link href='css/paperstyle.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div class="pageTitle">
+    UniGarmentManip: A Unified Framework for Category-Level Garment Manipulation via Dense Visual Correspondence
+  <br>
+  <br>
+  <span class = "Authors">
+      <a href="https://warshallrho.github.io/" target="_blank">Ruihai Wu</a><sup>*</sup> &nbsp; &nbsp;
+      <a href="https://github.com/luhr2003/" target="_blank">Haoran Lu</a><sup>*</sup> &nbsp; &nbsp;
+      Yiyan Wang &nbsp; &nbsp;
+      Yubo Wang &nbsp; &nbsp;
+      <a href="https://zsdonghao.github.io/" target="_blank">Hao Dong</a> &nbsp; &nbsp;<br>
+      <i>(*: indicates joint first authors)</i><br><br>
+      Peking University &nbsp;
+  </span>
+  </div>
+<br>
+<div class = "material">
+        <a href="https://cvpr.thecvf.com/" target="_blank"> IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2024</a>
+</div>
+<br>
+<div class = "material">
+        <a href="https://arxiv.org/abs/2405.06903" target="_blank">[Paper]</a>
+        <a href="https://github.com/luhr/UniGarmentManip" target="_blank">[Code]</a>
+        <a href="paper.bib" target="_blank">[BibTex]</a>
+</div>
+
+<div class = "abstractTitle">
+  Abstract
+  </div>
+  <p class = "abstractText">
+  Garment manipulation (e.g., unfolding, folding and hanging clothes) is essential for future robots to accomplish home-assistant tasks, while highly challenging due to the diversity of garment configurations, geometries and deformations. Although able to manipulate similar shaped garments in a certain task, previous works mostly have to design different policies for different tasks, could not generalize to garments with diverse geometries, and often rely heavily on human-annotated data. In this paper, we leverage the property that, garments in a certain category have similar structures, and then learn the topological dense (point-level) visual correspondence among garments in the category level with different deformations in the selfsupervised manner. The topological correspondence can be easily adapted to the functional correspondence to guide the manipulation policies for various downstream tasks, within only one or few-shot demonstrations. Experiments over garments in 3 different categories on 3 representative tasks in diverse scenarios, using one or two arms, taking one or more steps, inputting flat or messy garments, demonstrate the effectiveness of our proposed method.
+
+</p>
+
+<br>
+
+<div class="abstractTitle">
+    Diverse Garments in Our Daily Life
+</div>
+  <img class="bannerImage" src="./images/DiverseGarments.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+      There exist various types of garments with diverse styles, shapes and deformations. Unified representation and policy are required for manipulation with generalization capability.
+  </p></td></tr></tbody></table>
+
+<div class="abstractTitle">
+    Skeletons for Garments with Deformations
+</div>
+  <img class="bannerImage" src="./images/skeletons.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+      We propose to use skeletons, a graph of keypoints and edges to represent the structural information shared among garments in the category level. While previous works only propose skeletons in rigid objects, We first predict garment skeletons in flat states and project the skeletons to different garment deformations.
+  </p></td></tr></tbody></table>
+
+<div class="abstractTitle">
+    Proposed Framework
+</div>
+  <img class="bannerImage" src="./images/framework.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+      <b> Our Proposed Learning Framework for Dense Visual Correspondence. </b> <b>(Left)</b> We extract the cross-deform correspondence and cross-object correspondence point pairs respectively using self-play and skeletons, and train the per-point correspondence scores in the contrastive manner, with the Coarse-to-fine module refines the quality. <b> (Middle) </b> Learned correspondence demonstrates point-level similarity across different garments in different deformations. <b>(Right)</b> The learned point-level correspondence can facilitates multiple diverse downstream tasks using one or few-shot demonstrations.
+  </p></td></tr></tbody></table>
+
+<div class="abstractTitle">
+    Manipulation Guided by Dense Correspondence
+</div>
+  <img class="bannerImage" src="./images/manipulation.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+      With one (or a few) demonstration garment(s), and the demonstration manipulation policies for different tasks, for novel unseen garments, we can use the learned dense correspondence to select the manipulation points, and thus generate the manipulation policies to accomplish different tasks.
+  </p></td></tr></tbody></table>
+
+<div class="abstractTitle">
+    Qualitative Results of Manipulation
+</div>
+  <img class="bannerImage" src="./images/qualitative.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+      <b>Correspondence Guided Manipulation on Different Garment Types and Tasks.</b> From left to right: observation, correspondence, manipulation points (colored points) selected using correspondence to demonstrations and the manipulation action.
+  </p></td></tr></tbody></table>
+
+<div class="abstractTitle">
+    Real-World Setup
+</div>
+  <img class="bannerImage" src="./images/RealWorldSetup.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+      <b>Our Real-world Setup</b> includes two Franka Panda robot arms and a kinect camera. We first conduct the alignment on the real world point cloud and that in simulation, and then use correspondence to select manipulation points and thus guide manipulation.
+  </p></td></tr></tbody></table>
+
+
+
+<p></p>
+
+</body></html>
